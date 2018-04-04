@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hjcrm.entity">
+
+	<select id="queryMenuAll" parameterType="java.util.Map"
+		resultType="com.hjcrm.system.entity.Menu">
+		select * from hj_menu m
+		<if test="queryparent !=null">
+			where m.menuparaid is null
+		</if>
+		<if test="queryparent ==null">
+			where m.menuparaid = #{menuparaid}
+		</if>
+	</select>
+	 
+	 <select id="queryById" parameterType="java.util.Map"
+		resultType="com.hjcrm.system.entity.Menu">
+		select * from hj_menu m
+
+		<if test="menuid !=null">
+			where m.menuparaid is not null and m.menuid = #{menuid}
+		</if>
+	</select>
+	
+</mapper> 

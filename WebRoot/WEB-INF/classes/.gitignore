@@ -1,0 +1,11 @@
+/applicationContext.xml
+/com/
+/commonsqlmappings/
+/config.properties
+/context-dispatcher.xml
+/crm.sql
+/jdbc.properties
+/log4j.xml
+/mybatis-config.xml
+/mybatis/
+/org/

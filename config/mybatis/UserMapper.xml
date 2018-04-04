@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hjcrm.entity">
+
+	<!-- 查询用户是否存在 -->
+	<select id="queryUserByEmail" parameterType="java.util.Map"
+		resultType="com.hjcrm.system.entity.User">
+		select u.*
+		from
+		hj_user u
+		<if test="email != null and email !=''">
+			where u.email = #{email}
+		</if>
+	</select>
+
+	<!-- 查询邮箱和密码是否匹配 -->
+	<select id="isEashPasswordAndEmail"
+		parameterType="java.util.Map"
+		resultType="com.hjcrm.system.entity.User">
+		select u.userid,u.username,u.roleid,u.deptid,u.email
+		from hj_user u
+		where 1=1
+		<if test="email != null and email !=''">
+			and u.email = #{email}
+		</if>
+		<if test="password != null and password !=''">
+			and u.password=#{password}
+		</if>
+	</select>
+
+	<!-- 根据角色ID，查询角色所有菜单权限 -->
+	<select id="queryAllMenuByRoleId" parameterType="java.util.Map"
+		resultType="com.hjcrm.system.entity.Menu">
+		select r.roleid,r.rolename,rm.menuid,m.menuname,m.menuurl,m.menuimgurl
+		from hj_role r
+		left join hj_role_menu rm on rm.roleid = r.roleid
+		left
+		join hj_menu m on m.menuid = rm.menuid
+		<if test="roleid != null and roleid != '' and queryparent !=null">
+			where r.roleid = #{roleid} and m.menuparaid is null
+		</if>
+		<if
+			test="menuparaid != null and menuparaid != '' and queryparent ==null and roleid != null and roleid != '' ">
+			where m.menuparaid = #{menuparaid} and r.roleid =
+			#{roleid}
+		</if>
+	</select>
+
+	<select id="queryUserAll" parameterType="java.util.Map"
+		resultType="com.hjcrm.system.entity.User">
+		select u.*,d.deptname deptname,r.rolename from hj_user
+		u,hj_dept d,hj_role r where u.roleid=r.roleid and u.deptid=d.deptid
+	</select>
+
+
+</mapper> 
