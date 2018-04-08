@@ -21,6 +21,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/MenuMapper.xml" />
 		<mapper resource="mybatis/DeptMapper.xml" />
 		<mapper resource="mybatis/RoleMapper.xml" />
+		<mapper resource="mybatis/SystemMessageMapper.xml" />
 
 	</mappers>
 </configuration>

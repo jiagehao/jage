@@ -1,5 +1,6 @@
-/applicationContext.xml
 /com/
+/org/
+/applicationContext.xml
 /commonsqlmappings/
 /config.properties
 /context-dispatcher.xml
@@ -8,4 +9,3 @@
 /log4j.xml
 /mybatis-config.xml
 /mybatis/
-/org/

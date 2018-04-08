@@ -5,12 +5,13 @@ $.ajax({
    data: {
    		userid:nameid  
    },
-   url: "/crm/system/querySystemmessageSend.do",		   
+   url: "/CRM_13/system/querySystemmessageSend.do",		   
    success: function(data) {	
    	   if(data != "0"){
-		   var dataObj=eval("("+data+")");//转换为json对象				   
-		   var list = dataObj.rows;	
-		   $('#tishi').html("系统消息："+list.messageContent)	   		   
+		   var dataObj=eval("("+data+")");//转换为json对象		
+		   
+		   var list = dataObj.rows[0];
+		   $('#tishi').html("系统消息："+list)	   		   
 	   }  
  	}
 }) 
@@ -20,7 +21,7 @@ $.ajax({
    data: {
    		userid:nameid  
    },
-   url: "/crm/system/queryTodaynote.do",		   
+   url: "/CRM_13/system/queryTodaynote.do",		   
    success: function(data) {
 	   var dataObj=eval("("+data+")");//转换为json对象				   
 	   var list = dataObj.rows;
@@ -46,7 +47,7 @@ $.ajax({
 var webSocket = function(id) {
   var webSocket;
 //  webSocketPath = "ws:IP:port/websocket";
-  webSocketPath = "ws:localhost:8081/XDL_CRM/websocket";
+  webSocketPath = "ws:localhost:8080/CRM_13/websocket";
   try {
       webSocket = new ReconnectingWebSocket(webSocketPath);
       webSocket.debug = true;

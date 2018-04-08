@@ -66,7 +66,7 @@
 	    		</li>	    		
 	    	</ul>
 	    	<!-- 消息滚动 -->
-	    	<div class="gonggao">	    		
+	    	<div class="gonggao" style="width: 200px;">	    		
 	    		<div class="container">					 
 					  <div class="marquee">
 						 <ul class="marquee-content-items">
