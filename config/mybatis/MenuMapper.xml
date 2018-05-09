@@ -14,8 +14,8 @@
 			where m.menuparaid = #{menuparaid}
 		</if>
 	</select>
-	 
-	 <select id="queryById" parameterType="java.util.Map"
+
+	<select id="queryById" parameterType="java.util.Map"
 		resultType="com.hjcrm.system.entity.Menu">
 		select * from hj_menu m
 
@@ -23,5 +23,8 @@
 			where m.menuparaid is not null and m.menuid = #{menuid}
 		</if>
 	</select>
-	
+	<select id="queryMenuByRoleid" parameterType="java.util.Map"
+		resultType="com.hjcrm.system.entity.Menu">
+		select menuname from hj_menu where menuid in(select menuid from hj_role_menu where roleid=#{roleid})
+	</select>
 </mapper> 

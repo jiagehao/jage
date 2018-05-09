@@ -203,7 +203,7 @@ function delShow() {
 	$("#sbujectTable input[type='checkbox']:not(:first):checked").each(function() {
 		
 		var boxid = $(this).attr('class');
-		
+		delsubject =[];
 		delsubject.push(boxid);
 		
 	});		
@@ -224,7 +224,7 @@ function delSunject() {
 		type: "POST",
 		url: '../subject/deleteSubject.do',
 		data: {
-			subjectids:delsbujectids
+			ids:delsbujectids
 		},
 		success: function() {			 	   
 			window.location.reload();		

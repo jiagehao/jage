@@ -8,5 +8,13 @@
 		resultType="com.hjcrm.system.entity.Role">
 		select * from hj_role r where r.deptid = #{deptid}
 	</select>
+	<select id="queryAllCourse" 
+		resultType="com.hjcrm.system.entity.Course">
+		select * from hj_Course
+	</select>
+	<select id="querySubjectAll" 
+		resultType="com.hjcrm.system.entity.Subject">
+		select * from hj_Subject
+	</select>
 </mapper> 
 

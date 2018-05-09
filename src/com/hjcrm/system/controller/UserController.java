@@ -35,10 +35,10 @@ public class UserController extends BaseController {
 
 	@RequestMapping(value = "/system/userlist.do", method = RequestMethod.GET)
 	@ResponseBody
-	public String userlist(HttpServletRequest request, Integer currentPage, Integer pageSize) {
+	public List<User> userlist(HttpServletRequest request, Integer currentPage, Integer pageSize) {
 
 		List<User> users = userService.queryAllUsers(processPageBean(pageSize, currentPage));
-		return jsonToPage(users);
+		return users;
 
 	}
 

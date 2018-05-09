@@ -79,7 +79,7 @@ public abstract class BaseController implements InitializingBean {
 	 * 将页数返回前端
 	 * @author likang	
 	 * @param data
-	 * @return
+	 * @return String
 	 * 2016年10月13日10:59:22
 	 */
 	public String jsonToPage(Object data) {
